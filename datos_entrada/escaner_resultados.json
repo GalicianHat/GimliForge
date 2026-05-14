@@ -1,0 +1,21 @@
+{
+  "cliente": "Empresa Ficticia S.A.",
+  "fecha_auditoria": "2026-05-14",
+  "auditor": "Adrián Suárez",
+  "hallazgos": [
+    {
+      "id": "VULN-001",
+      "tipo": "Cross-Site Scripting (XSS) Reflejado",
+      "severidad": "Alta",
+      "url_afectada": "https://empresa-ficticia.com/buscar?q=",
+      "descripcion_tecnica": "El parámetro 'q' no sanitiza la entrada del usuario, permitiendo la inyección de código JavaScript arbitrario en el navegador de la víctima."
+    },
+    {
+      "id": "VULN-002",
+      "tipo": "Puerto SSH Abierto (22)",
+      "severidad": "Baja",
+      "url_afectada": "192.168.1.45",
+      "descripcion_tecnica": "Se ha detectado el puerto 22 abierto exponiendo el servicio OpenSSH 8.2p1. Aunque no es una vulnerabilidad per se, aumenta la superficie de ataque."
+    }
+  ]
+}
