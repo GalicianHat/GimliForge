@@ -1,0 +1,42 @@
+{
+  "metadata": {
+    "cliente": "HealthTrack Pro",
+    "auditor": "Adrián Suárez",
+    "fecha_auditoria": "2026-05-16",
+    "tipo_auditoria": "Auditoría de Aplicación Móvil (Caja Gris)"
+  },
+  "hallazgos": [
+    {
+      "id": "VULN-001",
+      "titulo": "Almacenamiento Inseguro del Token de Sesión",
+      "severidad": "Alta",
+      "cvss": 7.4,
+      "categoria": "Almacenamiento Local",
+      "descripcion_tecnica": "El token JWT de autenticación del usuario se guarda en texto plano en las SharedPreferences (Android) en lugar de utilizar el entorno seguro Keystore/Keychain."
+    },
+    {
+      "id": "VULN-002",
+      "titulo": "Bypass de Detección de Root/Jailbreak",
+      "severidad": "Media",
+      "cvss": 5.9,
+      "categoria": "Protección del Cliente",
+      "descripcion_tecnica": "Las comprobaciones de seguridad implementadas (RootBeer) para evitar que la aplicación se ejecute en dispositivos comprometidos fueron fácilmente bypasseadas mediante el framework Frida."
+    },
+    {
+      "id": "VULN-003",
+      "titulo": "Ausencia de Certificate Pinning",
+      "severidad": "Media",
+      "cvss": 5.4,
+      "categoria": "Comunicaciones de Red",
+      "descripcion_tecnica": "La aplicación no implementa SSL Pinning en sus llamadas a la API REST, lo que permite interceptar y manipular el tráfico (MitM) si el usuario instala un certificado raíz malicioso."
+    },
+    {
+      "id": "VULN-004",
+      "titulo": "Logs de Depuración Activados en Producción",
+      "severidad": "Baja",
+      "cvss": 3.1,
+      "categoria": "Fuga de Información",
+      "descripcion_tecnica": "La aplicación emite información sensible sobre las peticiones de red y respuestas del servidor a través de la consola del sistema operativo (Logcat/NSLog)."
+    }
+  ]
+}

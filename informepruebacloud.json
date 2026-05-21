@@ -1,0 +1,34 @@
+{
+  "metadata": {
+    "cliente": "NeoBank Cloud S.L.",
+    "auditor": "Adrián Suárez",
+    "fecha_auditoria": "2026-05-16",
+    "tipo_auditoria": "Auditoría de Infraestructura Cloud (AWS)"
+  },
+  "hallazgos": [
+    {
+      "id": "VULN-001",
+      "titulo": "Bucket S3 Público Exponiendo Datos Sensibles",
+      "severidad": "Crítica",
+      "cvss": 9.5,
+      "categoria": "Cloud / Almacenamiento",
+      "descripcion_tecnica": "El bucket de S3 'neobank-kyc-backups' cuenta con una política (Bucket Policy) que permite 's3:GetObject' a cualquier usuario anónimo (*), exponiendo documentos KYC de clientes."
+    },
+    {
+      "id": "VULN-002",
+      "titulo": "Escalada de Privilegios vía IAM 'PassRole'",
+      "severidad": "Alta",
+      "cvss": 8.8,
+      "categoria": "Gestión de Identidades (IAM)",
+      "descripcion_tecnica": "El rol de la instancia EC2 comprometida tiene permisos de 'iam:PassRole' sobre un rol de administrador, permitiendo lanzar una nueva instancia con privilegios de root en la cuenta de AWS."
+    },
+    {
+      "id": "VULN-003",
+      "titulo": "Volúmenes EBS sin Cifrado en Reposo",
+      "severidad": "Media",
+      "cvss": 4.0,
+      "categoria": "Cloud / Criptografía",
+      "descripcion_tecnica": "Se han detectado 4 volúmenes EBS asociados a las bases de datos de desarrollo que no tienen habilitado el cifrado KMS por defecto."
+    }
+  ]
+}
