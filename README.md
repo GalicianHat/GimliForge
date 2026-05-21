@@ -5,7 +5,10 @@ Autor: Adrián Suárez Recarey.
 
 
 # **Instalación y Requisitos**
-# 1- Librería matplot
+# 1- Librería matplot y generación del entorno de python
+
+python3 -m venv venv
+source venv/bin/activate
 pip3 install google-genai matplotlib
 sudo apt install python3-matplotlib (Por si no funciona con el instalador de pip3)
 
