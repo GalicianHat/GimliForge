@@ -1,6 +1,10 @@
 # GimliForge - Generador de Informes Mediante Lenguaje Inteligente
 Generador de informes de pentesting. 
-Proyecto desarrollado para Máster en Ciberseguridad & IA de Evolve Academy .
+
+
+Proyecto desarrollado para Máster en Ciberseguridad & IA de Evolve Academy.
+
+
 Autor: Adrián Suárez Recarey.
 
 
@@ -8,8 +12,14 @@ Autor: Adrián Suárez Recarey.
 # 1- Librería matplot y generación del entorno de python
 
 python3 -m venv venv
+
+
 source venv/bin/activate
+
+
 pip3 install google-genai matplotlib
+
+
 sudo apt install python3-matplotlib (Por si no funciona con el instalador de pip3)
 
 # 2- Generar API Key y exportarla en el S.O utilizado
