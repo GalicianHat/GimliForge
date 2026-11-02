@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "cliente": "Laboratorio ficticio de aplicaciones móviles",
+    "auditor": "Equipo de demostración",
+    "fecha_auditoria": "2026-10-01",
+    "alcance": "Evaluación autorizada de una aplicación móvil de laboratorio y de su API de pruebas. Se excluyen sistemas de terceros, infraestructura de producción y datos personales reales. El objetivo es documentar el proceso de generación de informes, no certificar la seguridad de un producto comercial.",
+    "metodologia": "Se revisaron configuraciones y respuestas preparadas para un entorno de laboratorio. Cada hallazgo se registró en el formato G.I.M.L.I. con identificador, evidencia, impacto y recomendación. Las puntuaciones CVSS de este ejemplo son ilustrativas y deben revisarse antes de una entrega real.",
+    "resumen_ejecutivo": "La revisión de laboratorio recoge cuatro hallazgos en la aplicación móvil y su entorno de pruebas. Uno tiene severidad alta, dos media y uno baja. La prioridad inmediata es reducir la exposición del token de sesión; las restantes medidas pueden planificarse según la exposición y el uso real de la aplicación.\n\nEl informe distingue los datos introducidos por el auditor de las decisiones que debe tomar el responsable del activo. No se atribuyen impactos económicos ni se afirma que las pruebas se hayan realizado en un sistema de producción.",
+    "impacto_negocio": "En un escenario real, la exposición de un token de sesión podría afectar a la protección de cuentas y a la confianza del usuario. La falta de controles en comunicaciones y registros aumenta la dificultad de demostrar que la información se trata de forma adecuada. Estos impactos son posibilidades técnicas, no incidentes observados.",
+    "conclusiones": "Se recomienda atender primero el almacenamiento del token y validar la corrección en una compilación de pruebas. Después conviene revisar el modelo de amenazas del cliente móvil, reforzar comunicaciones y ajustar los registros. Cada cierre debe acompañarse de una nueva prueba y evidencia reproducible."
+  },
+  "hallazgos": [
+    {
+      "id": "VULN-001", "titulo": "Token de sesión almacenado sin protección adicional", "severidad": "Alta", "cvss": 7.4,
+      "categoria": "Almacenamiento local", "activo": "Aplicación Android de laboratorio",
+      "descripcion_tecnica": "El ejemplo de laboratorio guarda el token de sesión en una preferencia legible por la aplicación. Esta ubicación no añade una capa de cifrado propia del sistema para el secreto. La exposición efectiva dependería de las protecciones del dispositivo y del modelo de amenaza.",
+      "evidencia": "Dato ficticio para la demostración: en una compilación de prueba se observa la clave session_token en el almacenamiento de preferencias de la aplicación. No se incluye ningún token real en este informe.",
+      "impacto": "Si un atacante obtuviera acceso a ese almacenamiento en un dispositivo comprometido, podría intentar reutilizar la sesión durante su vigencia. No se ha demostrado acceso a cuentas reales ni movimiento lateral.",
+      "reproduccion": "En el laboratorio, iniciar sesión con una cuenta de prueba, inspeccionar el almacenamiento local autorizado y verificar dónde se escribe el token. Repetir la inspección tras la corrección.",
+      "recomendacion": "Guardar credenciales y tokens con los mecanismos seguros del sistema operativo. Reducir la vigencia del token y revocarlo al cerrar sesión. Añadir una prueba automatizada que compruebe que el valor no aparece en preferencias sin protección.",
+      "referencias": "Guías de almacenamiento seguro de la plataforma móvil aplicable."
+    },
+    {
+      "id": "VULN-002", "titulo": "Control de integridad del cliente eludible", "severidad": "Media", "cvss": 5.9,
+      "categoria": "Protección del cliente", "activo": "Aplicación móvil de laboratorio",
+      "descripcion_tecnica": "La aplicación de ejemplo realiza una comprobación local del estado del dispositivo. Al depender del propio cliente, esa comprobación puede alterarse en un entorno controlado por quien ejecuta la aplicación.",
+      "evidencia": "Dato ficticio para la demostración: una sesión de pruebas instrumentada modifica la respuesta de la comprobación local y la aplicación continúa su flujo habitual.",
+      "impacto": "La elusión reduce el valor de ese control como barrera única. No implica por sí sola acceso a datos del servidor; el riesgo depende de qué decisiones de seguridad se deleguen al cliente.",
+      "reproduccion": "Comparar el flujo de la aplicación en el entorno de laboratorio antes y después de alterar la respuesta local. Registrar la versión probada y el resultado observado.",
+      "recomendacion": "No basar autorizaciones ni decisiones críticas únicamente en controles del cliente. Validar permisos y sesiones en el servidor y usar la señal de integridad como información adicional.",
+      "referencias": "Modelo de amenazas del cliente móvil y controles de autorización del servidor."
+    },
+    {
+      "id": "VULN-003", "titulo": "Comunicaciones sin pinning de certificados", "severidad": "Media", "cvss": 5.4,
+      "categoria": "Comunicaciones", "activo": "Conexión de la aplicación a la API de pruebas",
+      "descripcion_tecnica": "La compilación de laboratorio acepta certificados de una autoridad instalada en el dispositivo. Esta conducta facilita inspección autorizada del tráfico, pero requiere decidir si encaja con el modelo de amenaza de una compilación destinada a usuarios finales.",
+      "evidencia": "Dato ficticio para la demostración: el tráfico de la API de pruebas puede observarse mediante un proxy configurado en un dispositivo controlado por el equipo auditor.",
+      "impacto": "En ciertos escenarios, un atacante que controle el dispositivo o una autoridad de confianza podría intentar observar el tráfico. La ausencia de pinning no demuestra por sí sola una interceptación en producción.",
+      "reproduccion": "En un dispositivo de laboratorio, instalar una autoridad de prueba, dirigir el tráfico a un proxy autorizado y registrar si la aplicación completa la conexión.",
+      "recomendacion": "Revisar el modelo de amenazas antes de introducir pinning. Si se adopta, planificar rotación de certificados, recuperación ante fallos y pruebas de actualización para evitar bloquear a usuarios legítimos.",
+      "referencias": "Política de transporte y gestión de certificados de la organización."
+    },
+    {
+      "id": "VULN-004", "titulo": "Registros de depuración con datos de sesión", "severidad": "Baja", "cvss": 3.1,
+      "categoria": "Registro de eventos", "activo": "Compilación de laboratorio",
+      "descripcion_tecnica": "La versión de prueba emite detalles de autenticación en el registro de depuración. Debe verificarse que esos mensajes no estén presentes en las compilaciones distribuidas a usuarios.",
+      "evidencia": "Dato ficticio para la demostración: una ejecución de prueba muestra mensajes de depuración sobre el inicio de sesión. Los valores sensibles se han omitido de este documento.",
+      "impacto": "Los registros pueden facilitar el diagnóstico, pero si contienen secretos o identificadores podrían exponerlos a quien acceda al dispositivo o al sistema de observabilidad.",
+      "reproduccion": "Ejecutar el flujo de inicio de sesión con una cuenta de laboratorio y revisar los registros de la compilación final candidata.",
+      "recomendacion": "Eliminar secretos y datos personales de los mensajes. Aplicar niveles de registro por entorno y añadir una comprobación de compilación que detecte patrones sensibles.",
+      "referencias": "Política de registros y retención de la organización."
+    }
+  ]
+}

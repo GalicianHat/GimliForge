@@ -1,0 +1,7 @@
+{
+  "metadata": {"cliente": "Empresa de ejemplo S. A.", "auditor": "Auditor de demostración", "fecha_auditoria": "2026-10-01"},
+  "hallazgos": [
+    {"id": "VULN-001", "titulo": "Validación insuficiente en formulario de prueba", "severidad": "Alta", "cvss": 7.5, "categoria": "Aplicación web", "descripcion_tecnica": "En el laboratorio, el campo de búsqueda refleja entradas sin codificación de salida.", "recomendacion": "Codificar la salida y añadir una prueba de regresión."},
+    {"id": "VULN-002", "titulo": "Servicio de prueba expuesto", "severidad": "Baja", "cvss": 3.1, "categoria": "Red", "descripcion_tecnica": "Un servicio de laboratorio responde desde una red más amplia de la prevista.", "recomendacion": "Limitar el acceso a la red autorizada."}
+  ]
+}
