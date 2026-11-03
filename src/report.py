@@ -197,7 +197,7 @@ def render_report(data):
               + "Para cada hallazgo: registrar el cambio realizado, repetir la prueba autorizada, conservar la evidencia de cierre y documentar las excepciones. Si una prueba falla, reabrir el hallazgo.\n"
               + r"\subsection{Registro de seguimiento}" + "\n"
               + "Antes de dar un hallazgo por cerrado, el equipo debe completar para cada ID el responsable, la fecha de implantación, la versión o configuración afectada y el resultado de la nueva prueba. Estos datos no se infieren del hallazgo original.\n"
-              + r"\begin{longtable}{|p{1.8cm}|p{3.1cm}|p{4cm}|p{2.7cm}|}\hline"
+              + r"\begin{longtable}{|p{2.4cm}|p{2.9cm}|p{3.9cm}|p{2.4cm}|}\hline"
                 r"\textbf{ID}&\textbf{Responsable}&\textbf{Fecha de revisión}&\textbf{Resultado}\\\hline\endfirsthead"
                 r"\hline\textbf{ID}&\textbf{Responsable}&\textbf{Fecha de revisión}&\textbf{Resultado}\\\hline\endhead" + "\n"
               + ("\n".join(escape(f["id"]) + r" & Pendiente & Pendiente & Pendiente\\\hline" for f in ordered)

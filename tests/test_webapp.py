@@ -61,6 +61,9 @@ class WebAppTests(unittest.TestCase):
                 self.assertTrue(response.headers["Content-Type"].startswith(mime))
                 self.assertGreater(len(response.read()), 100)
                 self.assertIn("img-src 'self'", response.headers["Content-Security-Policy"])
+                self.assertEqual(response.headers["Referrer-Policy"], "no-referrer")
+                self.assertEqual(response.headers["X-Frame-Options"], "DENY")
+                self.assertEqual(response.headers["Cross-Origin-Resource-Policy"], "same-origin")
 
     def test_image_sources_and_local_key_settings(self):
         key_request = Request(self.base + "/api/settings/gemini", json.dumps({"key": "example-private-test-key"}).encode(),

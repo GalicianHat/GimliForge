@@ -56,7 +56,7 @@ def build_prompt(data):
 def draft(data, api_key=None):
     key = api_key or os.environ.get("GOOGLE_API_KEY") or os.environ.get("GEMINI_API_KEY") or local_api_key()
     if not key:
-        raise InputError("Añada GEMINI_API_KEY al archivo .env de GimliForge o configúrela en el entorno")
+        raise InputError("Configure su clave en el botón «Clave de Gemini» antes de solicitar una propuesta")
     body = json.dumps({"contents": [{"parts": [{"text": build_prompt(data)}]}],
                        "generationConfig": {"responseMimeType": "application/json", "temperature": 0.2}},
                       ensure_ascii=False).encode("utf-8")
