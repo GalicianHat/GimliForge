@@ -2,7 +2,7 @@
 
 **Estado:** borrador de trabajo. Autor de la práctica 1: Adrián Suárez Recarey (trabajo individual, calificado con matrícula de honor). No se recibió una lista formal de requisitos numerados; los identificadores siguientes se derivan de la memoria final y del código de la versión 1.0. Antes de entregar, se revisarán con el producto y el vídeo definitivos.
 
-La corrección comunicada por el autor fue favorable y señaló dos mejoras: añadir fotografías o capturas como evidencia en los informes y cuidar el interlineado de la nueva memoria. La versión 2.0 sigue en desarrollo local; no se ha publicado.
+La corrección comunicada por el autor fue favorable y señaló dos mejoras distintas: añadir fotografías o capturas como evidencia en los informes generados por GimliForge y cuidar el interlineado de la memoria académica. El segundo comentario no se refiere a la plantilla LaTeX del producto. La versión 2.0 sigue en desarrollo local; no se ha publicado.
 
 ## Requisitos derivados de la versión 1.0
 
@@ -26,7 +26,7 @@ La corrección comunicada por el autor fue favorable y señaló dos mejoras: añ
 | MEJ-02 | Memoria de v1: ampliar visualización. | Cinco gráficos calculados a partir de hallazgos. | `test_full_report_keeps_evidence_and_charts` | Explicar qué mide cada gráfico y qué ocurre cuando faltan datos. |
 | MEJ-03 | Memoria de v1: revisar seguridad de la página. | CSP y fuentes locales preparados para `/gimli` 2.0. | Revisión local en navegador; `SEGURIDAD_GIMLI.md` en el repositorio web. | Resolver controles del portfolio completo y repetir pruebas tras publicar. |
 | MEJ-04 | Objetivo de producto de la práctica 3. | Interfaz local en navegador, proyectos, PDF opcional y funcionamiento sin API. | `test_create_reopen_and_export_tex`; pruebas manuales previas. | Instalación desde cero en Windows, macOS y Linux; vídeo sin maquetas. |
-| DOC-01 | Comentario docente: interlineado correcto. | Pendiente de aplicar a la memoria final de la práctica 3. | Ninguna todavía. | Escribirla en LaTeX con cuerpo legible e interlineado consistente; revisar todas las páginas renderizadas. La portada no llevará fecha por decisión del autor. |
+| DOC-01 | Comentario docente: interlineado correcto en la memoria académica. | Pendiente de aplicar a la memoria final de la práctica 3; no implica cambiar los informes del producto. | Ninguna todavía. | Redactar la memoria con cuerpo legible e interlineado consistente; revisar todas las páginas del PDF final. La portada no llevará fecha por decisión del autor. |
 
 ## Decisión sobre el «modo de entrada forzosa»
 
