@@ -53,6 +53,23 @@ class WebAppTests(unittest.TestCase):
             urlopen(request)
         self.assertEqual(error.exception.code, 403)
 
+    def test_cross_site_post_and_malformed_json_are_rejected(self):
+        body = json.dumps(SAMPLE).encode()
+        request = Request(self.base + "/api/projects", body,
+                          {"Content-Type": "application/json", "Origin": "https://example.invalid"})
+        with self.assertRaises(HTTPError) as error:
+            urlopen(request)
+        self.assertEqual(error.exception.code, 403)
+        with urlopen(self.base + "/api/projects") as response:
+            self.assertEqual(json.load(response), [])
+        request = Request(self.base + "/api/projects", b"{malformed",
+                          {"Content-Type": "application/json", "Origin": self.base})
+        with self.assertRaises(HTTPError) as error:
+            urlopen(request)
+        self.assertEqual(error.exception.code, 400)
+        with urlopen(self.base + "/api/projects") as response:
+            self.assertEqual(json.load(response), [])
+
     def test_brand_assets_are_served_locally(self):
         for path, mime in (("/gimli-bg.jpg", "image/jpeg"),
                            ("/forge-effects.js", "text/javascript"),
