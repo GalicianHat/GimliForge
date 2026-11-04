@@ -26,7 +26,13 @@ Se abrirá `http://127.0.0.1:8765` en el navegador. Si no se abre solo, copie es
 4. Pulse **Guardar auditoría**. Los proyectos quedan en la carpeta local `projects/`, excluida de Git.
 5. Pulse **Descargar LaTeX**. Sin imágenes recibirá un `.tex`; con imágenes recibirá un ZIP que contiene el `.tex` y la carpeta `evidencias/`. Conserve juntos los archivos al editar o compilar. **Descargar PDF** incorpora las imágenes directamente en el documento.
 
-Para **Descargar PDF**, instale TeX Live (macOS/Linux) o MiKTeX/TeX Live (Windows), asegurándose de que `pdflatex` y los paquetes `babel-spanish`, `tikz`, `tabularx`, `longtable` y `fancyhdr` estén disponibles. La aplicación mostrará un aviso si no encuentra `pdflatex`; podrá seguir descargando el `.tex`. El ejemplo ficticio `demo_extensa.json` genera 13 páginas en la comprobación local; la longitud real depende de los hallazgos y la evidencia que se aporten.
+Para **Descargar PDF**, instale una distribución LaTeX que incluya `pdflatex` y los paquetes usados por el informe (`babel` en español, TikZ, `tabularx`, `longtable` y `fancyhdr`). La [guía rápida de la página](https://adriansr.com/gimli#pdf) ofrece enlaces oficiales y pasos para cada sistema:
+
+- **Windows:** instale [MiKTeX Basic](https://miktex.org/download) y active la instalación automática de paquetes que falten.
+- **macOS:** instale [MacTeX](https://www.tug.org/mactex/mactex-download.html).
+- **Ubuntu/Debian:** ejecute `sudo apt install texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-pictures texlive-lang-spanish`. Para otras distribuciones, consulte [TeX Live](https://tug.org/texlive/quickinstall.html).
+
+Abra una terminal nueva y compruebe `pdflatex --version`; después reinicie GimliForge. Si no instala LaTeX, podrá seguir descargando el `.tex`. El ejemplo ficticio `demo_extensa.json` genera 13 páginas en la comprobación local; la longitud real depende de los hallazgos y la evidencia que se aporten.
 
 ### Modo asistido con Gemini (opcional)
 

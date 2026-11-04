@@ -163,7 +163,7 @@ def handler_for(store: ProjectStore):
                         return self.send_bytes(buffer.getvalue(), "application/zip", filename="informe_gimliforge_fuentes.zip")
                     compiler = shutil.which("pdflatex")
                     if not compiler:
-                        raise InputError("Para generar PDF, instale pdflatex. El archivo LaTeX se puede descargar igualmente.")
+                        raise InputError("Para generar PDF, instale pdflatex. Guía: https://adriansr.com/gimli#pdf. El archivo LaTeX se puede descargar igualmente.")
                     with tempfile.TemporaryDirectory(prefix="gimliforge-") as tmp:
                         source = Path(tmp) / "informe.tex"
                         source.write_bytes(tex)
