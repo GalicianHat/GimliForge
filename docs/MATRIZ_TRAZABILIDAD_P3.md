@@ -2,7 +2,7 @@
 
 **Estado:** matriz de trabajo contrastada con las pruebas locales P-01 a P-06 de `docs/PRUEBAS_P3.md`. Autor de la práctica 1: Adrián Suárez Recarey (trabajo individual, calificado con matrícula de honor). No se recibió una lista formal de requisitos numerados; los identificadores siguientes se derivan de la memoria final y del código de la versión 1.0. Antes de entregar, se revisarán con el producto y el vídeo definitivos.
 
-La corrección comunicada por el autor fue favorable y señaló dos mejoras distintas: añadir fotografías o capturas como evidencia en los informes generados por GimliForge y cuidar el interlineado de la memoria académica. El segundo comentario no se refiere a la plantilla LaTeX del producto. La versión 2.0 sigue en desarrollo local; no se ha publicado.
+La corrección comunicada por el autor fue favorable y señaló dos mejoras distintas: añadir fotografías o capturas como evidencia en los informes generados por GimliForge y cuidar el interlineado de la memoria académica. El segundo comentario no se refiere a la plantilla LaTeX del producto. Esta matriz documenta la versión 2.0 y sus verificaciones pendientes para la entrega.
 
 ## Requisitos derivados de la versión 1.0
 
