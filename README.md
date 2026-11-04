@@ -6,7 +6,7 @@ GimliForge convierte hallazgos de auditoría en un informe **LaTeX** revisable. 
 
 Necesita **Python 3.10 o posterior** y un navegador actual. La aplicación no necesita `pip`, una cuenta ni una clave API.
 
-1. Para probar esta versión antes de publicarla, descomprima el paquete descargado. La versión pública de GitHub todavía es la v1.
+1. Descargue GimliForge 2.0 desde la [página del proyecto](https://adriansr.com/gimli) y descomprima el paquete. El código fuente también está en este repositorio.
 2. Abra una terminal dentro de la carpeta `GimliForge`.
 3. Ejecute el comando correspondiente:
 
